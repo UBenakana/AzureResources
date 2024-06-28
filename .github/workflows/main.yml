@@ -1,4 +1,3 @@
-name: Run Azure Login with OIDC
 on: [push]
 
 permissions:
@@ -11,14 +10,9 @@ jobs:
       - name: Azure login
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          enable-AzPSSession: false
-          environment: azurecloud
-          allow-no-subscriptions: false
-          audience: api://AzureADTokenExchange
-          auth-type: SERVICE_PRINCIPAL
+          client-id: ${{ SECRETS.AZURE_CLIENT_ID }}
+          tenant-id: ${{ SECRETS.AZURE_TENANT_ID }}
+          subscription-id: ${{ SECRETS.AZURE_SUBSCRIPTION_ID }}
 
       - name: Azure CLI script
         uses: azure/cli@v2
